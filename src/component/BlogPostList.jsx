@@ -41,25 +41,26 @@ const BlogPostList = () => {
   };
 
 
-
   return (
-    <div className="post-list">
+    <div>
       <h2>Blog Posts</h2>
-      {posts.map((post) => (
-        <div key={post.id}>
-          {editingPostId === post.id ? (
-            <EditPost post={post} onEditComplete={handleEditComplete} onCancel={handleCancelEdit} />
-          ) : (
-            <Post post={post} />
-          )}
-          {editingPostId !== post.id && (
-            <>
-              <button onClick={() => handleDelete(post.id)}>Delete</button>
-              <button onClick={() => handleEditClick(post.id)}>Edit</button>
-            </>
-          )}
-        </div>
-      ))}
+      <div className="post-list text-center" style={{display: 'flex', flexWrap:'wrap'}}>
+        {posts.map((post) => (
+          <div key={post.id} style={{}}>
+            {editingPostId === post.id ? (
+              <EditPost post={post} onEditComplete={handleEditComplete} onCancel={handleCancelEdit} />
+            ) : (
+              <Post post={post} />
+            )}
+            {editingPostId !== post.id && (
+              <>
+                <button className="btn btn-outline-danger" style={{}} onClick={() => handleDelete(post.id)}>Delete</button><span></span>
+                <button className="btn btn-outline-info" onClick={() => handleEditClick(post.id)}>Edit</button>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
