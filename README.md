@@ -1,5 +1,5 @@
 # Frontend(React)
-cd .\frontend\
+cd .\blog-for-crud-operation-frontend\
 npm install
 
 # Run the frontend
